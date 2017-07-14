@@ -16,7 +16,7 @@
         <div class="page" id="main">
             <header><h3>Report a Smell</h3></header>
             <form id="report-form">
-              <p class="note">When you report to Air Watch Bay Area, you contribute to a <a href="#" onclick="window.open('http://www.airwatchbayarea.org#community-resources', '_system');">publicly visible “paper&nbsp;trail” of incidents</a>.Having this paper trail enables community members to hold Bay Area Air Quality Management District accountable.</p>
+              <p class="note">When you report to Air Watch Bay Area, you contribute to a <a href="#" onclick="window.open('http://www.airwatchbayarea.org#community-resources', '_system');">publicly visible “paper&nbsp;trail” of incidents</a>. Having this paper trail enables community members to hold Bay Area Air Quality Management District accountable.</p>
               <label>
                 <strong class="required">How does your air smell right now?</strong>
               </label>
@@ -51,9 +51,13 @@
                 <span>5 - About as bad as it gets!</span></div>
               </label>
 
-              <label class='textarea-label'>
+              <label class='textarea-label' for="location">
                 <strong class="required">Where were you when you detected the odor?</strong>
-                <textarea id="address" name="location" placeholder="e.g. at the corner of 7th and Hensley" required></textarea>
+                <br>
+                <input type="button" class="report-button" name="geolocation" value="use my GPS location">
+                <br>
+                <strong>Or enter an address, cross street, or location name here:</strong>
+                <textarea id="address" name="location" placeholder="e.g. at the corner of 7th and Hensley, Valero Benicia" required></textarea>
               </label>
 
               <label class='textarea-label'>
@@ -101,6 +105,7 @@
               <div id="submit-another-report" class="report-button no-highlight">submit another report</div>
             </div>
              <p class="note">This is not a substitute for reporting to BAAQMD, since we cannot relay your report directly to them.  We recommend that you also submit a report through their&nbsp;website.</p>
+            <div id="clear-form">✕ Reset Report</div>
             </form>
         </div>
     </div>

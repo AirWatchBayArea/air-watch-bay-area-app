@@ -12,6 +12,13 @@ var app = {
     
     onDeviceReady: function(){
         StatusBar.overlaysWebView(false);
+        $(function(){
+            $('[name=geolocation]').click(function(event){
+                navigator.geolocation.getCurrentPosition(geolocationSuccess,
+                                                         geolocationError,
+                                                         { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true })
+            });
+        });
     },
 
     showPage: function(p){

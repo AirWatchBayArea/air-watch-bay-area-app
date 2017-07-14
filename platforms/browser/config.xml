@@ -6,15 +6,15 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>helloworld</name>
+    <name>Air Watch Bay Area</name>
+    <icon density="mdpi" height="57" src="www/img/airwatch.png" width="57" />
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Air Watch Bay Area app allows users to make smell reports and submit photos.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="airwatchbayarea@gmail.com" href="http://airwatchbayarea.org">
+        Fair Tech Collective
     </author>
     <content src="index.html" />
-    <icon density="mdpi" height="57" src="www/img/airwatch.png" width="57" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
