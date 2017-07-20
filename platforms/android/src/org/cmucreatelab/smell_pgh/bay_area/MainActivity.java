@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.phonegap.helloworld;
+package org.cmucreatelab.smell_pgh.bay_area;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
