@@ -25,7 +25,6 @@
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
-    <plugin name="cordova-plugin-contacts" source="npm" spec="~2.0.1" />
     <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2" />
@@ -59,6 +58,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription" overwrite="true">
+        <string>For uploading user submitted images to the website</string>
+    </gap:config-file>
     <engine name="android" spec="~6.1.2" />
     <engine name="ios" spec="~4.3.1" />
     <icon src="icon.png" />
