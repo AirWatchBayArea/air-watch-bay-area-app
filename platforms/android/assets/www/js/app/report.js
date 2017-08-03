@@ -124,7 +124,7 @@ function geolocationSuccess(position){
 
 function geolocationError(error){
   $('.geocheck').remove();
-  // $('.geoerror').remove();
+  $('.geoerror').remove();
   // $('[name=geolocation]').prop('disabled', true);
   $('[name=geolocation]').after('<span class="geoerror" style="color:red"><br>Cannot retrieve location, please enter location in textbox directly underneath or check location permissions in Settings.<span>');
   alert('We were unable to retrieve your location data. Please enter your location in the textbox below the GPS button or check your location permissions in Settings.');
