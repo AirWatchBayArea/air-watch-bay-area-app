@@ -271,6 +271,11 @@ textarea:disabled{
   background-color: black;
 }
 
+.now-button{
+  padding: 5px 10px;
+  margin: 5px 10px 5px 0px;
+}
+
 input[type=submit] {
   border: none;
 }
