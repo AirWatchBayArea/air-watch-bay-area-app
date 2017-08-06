@@ -22,30 +22,22 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#085b64" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
-    <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0" />
-    <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0" />
-    <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.1.3" />
-    <plugin name="cordova-plugin-spinner" spec="~1.1.0" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <plugin name="cordova-plugin-spinner" spec="~1.1.0" />
     <plugin name="cordova-plugin-geolocation" spec="~2.1.0">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Location data is associated with the location of your smell report and will only be used when the &quot;use my GPS location&quot; button is pressed. Furthermore, a random offset is added to your location for extra security." />
     </plugin>
     <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <allow-navigation href="*://*.airwatchbayarea.org/*" />
+    <allow-navigation href="*://*.airwatchbayarea.com/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
@@ -57,7 +49,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription" overwrite="true">
+    <gap:config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading user submitted images to the website</string>
     </gap:config-file>
     <engine name="android" spec="~6.1.2" />

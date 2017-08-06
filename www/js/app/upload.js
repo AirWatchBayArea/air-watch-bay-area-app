@@ -26,8 +26,7 @@ var progress = {
 			this.progress = 100.0;
 		}else{
 			this.progress += 1;
-		}
-		
+		}		
 	},
 	getProgress: function(){
 		return this.progress;
@@ -38,30 +37,35 @@ var progress = {
 	  	$('.progress_wrapper .progress_text').text(percent + '%');
 	},
 	finallyFinished: submissionSuccess,
+	error: function(){console.log("Upload error")},
 }
 
 function uploadInit(){
 
 	uploader = $('.upload_field').unsigned_cloudinary_upload("u87zingl", 
 	  { cloud_name: 'hpkutahah', tags: 'browser_uploads', context: ''}, 
-	  { multiple: true, autoUpload: false, replaceFileInput: false}
+	  { multiple: false, autoUpload: false, replaceFileInput: false}
 	).bind('cloudinarydone', function(e, data) {
 	  console.log('Upload to cloudinary complete');
 	  progress.uploadComplete();
 	  progress.showProgress();
-	}).bind('cloudinaryprogress', function(e, data) { 
+	}).bind('cloudinaryprogress', function(e, data) {
 		progress.updateProgress((data.loaded * 100.0) / data.total);
 		progress.showProgress();
+	}).bind('cloudinaryfail', function(e, data) {
+		reportFailed('Photo upload failed ('+data+')', "reporting this error. We haven't come across this kind of error yet, so please report it (see next line).")
+		progress.error(data);
 	});
 
 	uploader.bind('fileuploadadd', function (e, data) {
+		e.preventDefault();
 		var img = document.createElement("IMG"); 
-		console.log(URL.createObjectURL(data.files[0]));
 		img.setAttribute("src", URL.createObjectURL(data.files[0])); 
 		img.setAttribute("width", '100%');
 		$.data(img, "img", data);
-		var thumbnail = $('<div class="thumbnail-wrapper"><div class="delete-me"></div>');
+		var thumbnail = $('<div class="thumbnail-wrapper"><div class="delete-me"><i class="glyphicon glyphicon-trash"></i></div>');
 		$(thumbnail).children('.delete-me').click(function(event){
+			$(event.currentTarget).parent().next().remove();
 			$(event.currentTarget).parent().remove();
 			$('.num-file-status').text($('.thumbnails img').length + ' files selected for upload.');
 			if($('.thumbnails img').length){
@@ -70,12 +74,32 @@ function uploadInit(){
 				$('.photo-upload').hide();
 			}
 		});
+
 		thumbnail.prepend(img);
-		$('.thumbnails').append(thumbnail);
+		$('.thumbnails')
+		.append(thumbnail)
+		.append('<div class="report-form-section"><label class="textarea-label photo-upload">'+
+		          '<strong>Caption:</strong>'+
+		          '<input type="text" id="caption" name="caption"/>'+
+		        '</label>'+
+		        '<div class="textarea-label photo-upload">'+
+		          '<strong class="required">When did this photo occur?</strong>'+
+		          '<br><button class="report-button now-button">Now</button>'+
+		          '<label style="display:inline"><strong>Date:&ensp;</strong> <input class="required" type="date" name="photo-date" required></label>'+
+		          '&emsp;<label style="display:inline"><strong>Time:&ensp;</strong> <input class="required" type="time" name="photo-time" required></label>'+
+		        '<br></div></div>');		
 		$('.num-file-status').text($('.thumbnails img').length + ' files selected for upload.');
 		$('.photo-upload').show();
 		$('#file-upload').val('');
+		scrollToElmBottom($('[aria-describedby="reportDialog"]'));
 	});
+	$('.thumbnails').on('click', '.now-button', function(event) {
+		event.preventDefault();
+		var datetime = new Date().toDateInputValue().split('T');
+		$(event.currentTarget).siblings('label').children('[name=photo-date]').val(datetime[0]);
+		$(event.currentTarget).siblings('label').children('[name=photo-time]').val(datetime[1]);
+	});
+
 }
 
 function convertToPipeDelimited(metadata){
@@ -96,7 +120,9 @@ function enableImageDelete(){
 	$('#file-upload').prop('disabled', false);
 }
 
-function submitImgs(metadata){
+function submitImgs(resolve, reject, metadata){
+	progress.finallyFinished = resolve;
+	progress.error = reject;
 	disableImageDelete();
 	if(!($.isEmptyObject(metadata))){
 		uploader.fileupload('option', 'formData').context = convertToPipeDelimited(metadata);
@@ -105,12 +131,15 @@ function submitImgs(metadata){
 	progress.initialize(img2upload.length);
 	if(img2upload.length){
 		$(img2upload).each(function(index, elm){
+			var data = jQuery.extend(true, {}, metadata);
+			data.caption = metadata['caption'][index];
+			data.when = metadata['when'][index];
+			uploader.fileupload('option', 'formData').context = convertToPipeDelimited(data);
 			$(elm).data('img').submit();
 		});
 	}else{
-		submissionSuccess();
+		resolve();
 	}
-	
 }
 
 $(uploadInit);

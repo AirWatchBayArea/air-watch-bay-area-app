@@ -59,9 +59,35 @@ button:active {
 
 }
 
+#submit-success, #uploading, #upload-error{
+  display: none;
+}
+
+#upload-error-message:before{
+  content: 'Report failed to upload: ';
+}
+
+#error-resolution:before{
+  content: 'Resolve by: ';
+}
+
+.uploading{
+  min-height: 55px;
+}
+
 .success.note{
-  border: 3px solid #4F8A10;
+  border: 4px solid #4F8A10;
   background-color: #DFF2BF;
+}
+
+.uploading.note{
+  border: 4px solid gold;
+  background-color: lightyellow;
+}
+
+.error.note{
+  border: 4px solid red;
+  background-color: lightcoral;
 }
 
 .note{
@@ -104,6 +130,38 @@ strong.required:after{
   color: red;
 }
 
+.required-error{
+  border: 3px solid lightcoral;
+}
+
+label.tag{
+  margin: 5px 0px;
+}
+
+.tag-label{
+  position: relative;
+  display: inline-block;
+  min-width: 70px;
+  padding: 10px 5px;
+  border: solid 3px darkgray;
+  border-radius: 10px;
+  background-color: white;
+  transition: background-color .2s;
+  font-weight: normal;
+  text-align: center
+}
+
+input[type='radio']:checked+.tag-label, input[type='checkbox']:checked+.tag-label{
+  background-color: gray;
+  border-color: darkgray;
+  color: white;
+}
+
+input[type='radio']:checked+.tag-label input, input[type='checkbox']:checked+.tag-label input{
+  color: black;
+}
+
+
 .smell-label{
   position: relative;
   display: inline-block;
@@ -120,7 +178,7 @@ strong.required:after{
   margin-left: 40px;
 }
 
-.smell-box{
+.radio-circle, .smell-box{
   position: absolute;
   margin: 0px 10px;
   height: 20px;
@@ -129,7 +187,7 @@ strong.required:after{
 }
 
 
-input[name="smell"]{
+input[type="radio"], input[type="checkbox"]{
   display: none;
 }
 
@@ -139,42 +197,44 @@ input[name="smell"]:checked+.smell-label{
   color: white;
 }
 
-input[value="1"]+.smell-label>.smell-box{
+input[value="1"]+.smell-label>.radio-circle{
   background-color: lime;
 }
 
-input[value="2"]+.smell-label>.smell-box{
+input[value="2"]+.smell-label>.radio-circle{
   background-color: yellow;
 }
 
-input[value="3"]+.smell-label>.smell-box{
+input[value="3"]+.smell-label>.radio-circle{
   background-color: orange;
 }
 
-input[value="4"]+.smell-label>.smell-box{
+input[value="4"]+.smell-label>.radio-circle{
   background-color: crimson;
 }
 
-input[value="5"]+.smell-label>.smell-box{
+input[value="5"]+.smell-label>.radio-circle{
   background-color: rebeccapurple;
 }
 
-textarea { 
+textarea, input[type=text] { 
   resize: vertical; 
   border: none;
 }
-
 .textarea-label>textarea{
   height: 5em;
+}
+
+.textarea-label>textarea, .textarea-label>input[type=text]{
   font-size: 1em;
   margin-top: 10px;
 }
 
-.textarea-label, .textarea-label>textarea{
+.textarea-label, .textarea-label>textarea, .textarea-label>input[type=text]{
   width: 100%;
 }
 
-.smell-label, .textarea-label>textarea {
+.smell-label, .textarea-label>textarea, .textarea-label>input[type=text] {
   font-weight: normal;
 }
 
@@ -191,12 +251,11 @@ textarea:disabled{
   color: white;
   text-align: center;
   font-size: 18px;
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
-  cursor: pointer;
   border: none;
+  border-radius: 10px;
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .report-button:hover{
@@ -257,10 +316,6 @@ input[type=submit] {
   transform: translateX(-50%) translateY(-50%);
 }
 
-.upload_field {
-  -webkit-appearance: button !important;
-}
-
 .progress_wrapper {
   display: block;
   margin: 5px 0;
@@ -277,7 +332,7 @@ input[type=submit] {
 .progress_bar {
   width: 0px;
   height: 20px;
-  background-color: #085b64;
+  background-color: #00bdac;
   text-align: center;
   line-height: 21px;
   border-radius: 5px;
