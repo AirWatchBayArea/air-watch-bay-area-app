@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.cmucreatelab.smell-pgh.bay-area" version="1.8.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.cmucreatelab.smell-pgh.bay-area" version="1.8.7" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Air Watch Bay Area</name>
     <description>
         Air Watch Bay Area app allows users to make smell reports and submit photos.
