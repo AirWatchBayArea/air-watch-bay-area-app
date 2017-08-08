@@ -1,6 +1,6 @@
-// var serverURL = 'http://bayarea.staging.api.smellpittsburgh.org/api/v1/smell_reports'
+// var serverURL = 'http://bayarea.staging.api.smellpittsburgh.org/api/v1/smell_reports';
 var serverURL = 'http://api.smellpittsburgh.org/api/v1/smell_reports?area=BA';
-
+var geocoder;
 // generate a hash for the user
 function generateUserHash() {
   var userHash;
@@ -13,24 +13,59 @@ function generateUserHash() {
   return userHash;
 }
 
+function geocodeAddress(geocoder) {
+  var address = document.getElementById('address').value;
+  return new Promise(function (resolve, reject){
+    if($('[name=location]').prop('disabled')){
+      var latlng = address.split(',').map(parseFloat);
+      resolve([{'geometry':{'location':new google.maps.LatLng(latlng[0],latlng[1])}}]);
+    }else{
+      geocoder.geocode({'address': address, 'bounds': 
+      new google.maps.LatLngBounds(
+        new google.maps.LatLng(37.851624286540286, -122.56790076098628), 
+        new google.maps.LatLng(38.14975803797967,-121.97875891528315))
+       }, function(results, status) {
+        if (status === 'OK') {
+          resolve(results);
+        } else if (status === 'ZERO_RESULTS'){
+          reportFailed('address to coordinate conversion failed.', 'being more exact in your location description, as if you were locating it on a map.');
+          reject(status);
+        }else if (status === 'OVER_QUERY_LIMIT'){
+          reportFailed('address to coordinate conversion failed because of too much traffic to the site', 'trying again later (sorry about that!)');
+          reject(status);
+        }else if (status === 'REQUEST_DENIED'){
+          reportFailed('address to coordinate conversion failed because Google denied your request for some reason (' + status + ': ' + results.error_message + ')', "taking screenshots and sending them to the email below.");
+          reject(status);
+        }else if (status === "INVALID_REQUEST"){
+          reportFailed('address to coordinate conversion failed because of an invalid request on our side. (' + status + ': ' + results.error_message + ')', "taking screenshots and sending them to the email below.");
+          reject(status);
+        }else{
+          reportFailed('address to coordinate conversion failed because of Google internal error (' + status + ': ' + results.error_message + ')', "trying again (that's what Google says to do).");
+          reject(status);
+        }
+      });
+    }
+  });
+}
+
 function getCategoryList(){
   return $('[name=tag]:checked').map(function () {
-    return (this.value == "other") ? $('[name=tag-other]').val() : this.value;
+    return encodeURIComponent((this.value == "other") ? $('[name=tag-other]').val() : this.value);
   }).get();
 }
 
 function getCaptionList(){
   return $('[name=caption]').map(function () {
-    return this.value;
+    return encodeURIComponent(this.value);
   }).get();
 }
 
 function getDateTimeList(){
   var dates = $('[name=photo-date]').map(function () {
-    return this.value;
+    return encodeURIComponent(this.value);
   }).get();
   var times = $('[name=photo-time]').map(function () {
-    return this.value;
+    return encodeURIComponent(this.value);
   }).get();
   var dateTimeList = [];
   for(var i = 0; i < dates.length; i++){
@@ -39,43 +74,29 @@ function getDateTimeList(){
   return dateTimeList;
 }
 
-function geocodeAddress(geocoder) {
-  var address = document.getElementById('address').value;
-  return new Promise(function (resolve, reject){
-    geocoder.geocode({'address': address, 'bounds': 
-    new google.maps.LatLngBounds(
-      new google.maps.LatLng(37.851624286540286, -122.56790076098628), 
-      new google.maps.LatLng(38.14975803797967,-121.97875891528315))
-     }, function(results, status) {
-      if (status === 'OK') {
-        resolve(results);
-      } else if (status === 'ZERO_RESULTS'){
-        reportFailed('address to coordinate conversion failed.', 'being more exact in your location description, as if you were locating it on a map.');
-        reject(status);
-      }else if (status === 'OVER_QUERY_LIMIT'){
-        reportFailed('address to coordinate conversion failed because of too much traffic to the site', 'trying again later (sorry about that!)');
-        reject(status);
-      }else if (status === 'REQUEST_DENIED'){
-        reportFailed('address to coordinate conversion failed because Google denied your request for some reason (' + status + ': ' + results.error_message + ')', "taking screenshots and sending them to the email below.");
-        reject(status);
-      }else if (status === "INVALID_REQUEST"){
-        reportFailed('address to coordinate conversion failed because of an invalid request on our side. (' + status + ': ' + results.error_message + ')', "taking screenshots and sending them to the email below.");
-        reject(status);
-      }else{
-        reportFailed('address to coordinate conversion failed because of Google internal error (' + status + ': ' + results.error_message + ')', "trying again (that's what Google says to do).");
-        reject(status);
-      }
-    });
-  });
-}
-
-function serializeForm(geocodeResults){
+function serializeForm(geocodeResults, img_src_array){
   //userhash
   if(!localStorage.getItem('AWBAuser') || localStorage.getItem('AWBAuser').substring(0,2) != "BA") {
       localStorage.setItem('AWBAuser', generateUserHash());
   }
   //latlong
   var latlng = geocodeResults[0]['geometry']['location'];
+  var dateTimeList = getDateTimeList();
+  var captionList = getCaptionList();
+  assert(img_src_array.length == captionList.length && img_src_array.length == dateTimeList.length, "public_id, datetime, and category lists should all be the same size (something really weird happened)");
+  var imgData = {};
+  for(var i = img_src_array.length - 1; i >= 0; i--) {
+    imgData[img_src_array[i]] = {
+      'caption':captionList[i],
+      'when':dateTimeList[i]
+    }
+  }
+  var additionalCommentsData = {
+    "additional_comments": $('[name=additional-comments]').val() ? encodeURIComponent($('[name=additional-comments]').val()) : null,
+    "tags": getCategoryList(),
+    "img": imgData
+  };
+
   var data = 
   {
     "user_hash" : localStorage.getItem('AWBAuser'),
@@ -84,7 +105,7 @@ function serializeForm(geocodeResults){
     "smell_value" : parseInt($('[name=smell]:checked').val()),
     "smell_description" : $('[name=describe-air]').val() ? $('[name=describe-air]').val() : null,
     "feelings_symptoms" : $('[name=symptoms]').val() ? $('[name=symptoms]').val() : null,
-    "additional_comments" : $('[name=additional-comments]').val() ? $('[name=additional-comments]').val() : null,
+    "additional_comments" : JSON.stringify(additionalCommentsData),
   };
   return data;
 }
@@ -111,17 +132,9 @@ function postData(data){
   });
 }
 
-function processImgSubmissions(msg){
+function processImgSubmissions(){
   return new Promise(function(resolve,reject){
-    submitImgs(resolve, reject, {
-      'smell_report':JSON.stringify(msg),
-      'alt':msg['smell_description'], 
-      'caption':getCaptionList(),
-      'when':getDateTimeList(),
-      'additional_comments':msg['additional_comments'],
-      "tag": 
-        getCategoryList().join(','),
-    }); 
+    submitImgs(resolve, reject);  
   });
 }
 
@@ -228,18 +241,14 @@ function submitForm(){
   }
   submissionUploading();
   disableSubmit();
-  geocodeAddress(geocoder).then(function(results) {
-    return postData(serializeForm(results));
+  var geocodeResults;
+  geocodeAddress().then(function(results){
+    geocodeResults = results;
+    return processImgSubmissions();
+  }).then(function(img_src_array){
+    return postData(serializeForm(geocodeResults, img_src_array));
   }).then(function(results){
-    return processImgSubmissions(results);
-  }).then(function(results){
-    try{
-      refreshPosts();
-    }catch(err){
-      console.log("Why does this fail????", err);
-    }finally{
-      submissionSuccess();
-    }
+    submissionSuccess();
   }).catch(function(err){
     console.log(err);
     formValidate();

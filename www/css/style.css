@@ -272,6 +272,7 @@ textarea:disabled{
 }
 
 .now-button{
+  max-width: 200px;
   padding: 5px 10px;
   margin: 5px 10px 5px 0px;
 }
