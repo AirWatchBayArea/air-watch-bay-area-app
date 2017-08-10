@@ -55,7 +55,7 @@
 <!--     <gap:config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading submitted images to the website</string>
     </gap:config-file> -->
-    <config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+    <config-file target="*-Info.plist" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading submitted images to the website</string>
     </config-file>
     <engine name="android" spec="~6.1.2" />
