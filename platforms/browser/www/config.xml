@@ -21,9 +21,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <gap:config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
-        <string>For uploading submitted images to the website</string>
-    </gap:config-file>
     <config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading submitted images to the website</string>
     </config-file>
