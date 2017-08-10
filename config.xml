@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.cmucreatelab.smell-pgh.bay-area" version="1.8.9" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.cmucreatelab.smell-pgh.bay-area" version="1.8.10" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Air Watch Bay Area</name>
     <description>
         Air Watch Bay Area app allows users to make smell reports and submit photos.
@@ -52,9 +52,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-<!--     <gap:config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
-        <string>For uploading submitted images to the website</string>
-    </gap:config-file> -->
+    <config-file target="*-Info.plist" overwrite="true" parent="NSCameraUsageDescription" platform="ios">
+        <string>For capturing images to send to the website</string>
+    </config-file>
     <config-file target="*-Info.plist" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading submitted images to the website</string>
     </config-file>
