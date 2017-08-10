@@ -1,12 +1,4 @@
 {
-    "cordova-plugin-battery-status": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-battery-status@~1.1.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-camera": {
         "source": {
             "type": "registry",
@@ -47,34 +39,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-contacts": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-contacts@~2.0.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-device": {
         "source": {
             "type": "registry",
             "id": "cordova-plugin-device"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-device-motion": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-device-motion@~1.2.0"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-device-orientation": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-device-orientation@~1.0.2"
         },
         "is_top_level": true,
         "variables": {}
@@ -129,14 +97,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-network-information": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-network-information@~1.2.0"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
@@ -181,15 +141,6 @@
         "source": {
             "type": "registry",
             "id": "ionic-plugin-keyboard@~2.2.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "com.cesidiodibenedetto.filechooser": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/caixiangsap/filechooser.git",
-            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}

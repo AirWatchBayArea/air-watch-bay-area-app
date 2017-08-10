@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-battery-status": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
@@ -19,16 +16,7 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
-        "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-dialogs": {
@@ -47,9 +35,6 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-media": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-splashscreen": {
@@ -72,9 +57,6 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "com.cesidiodibenedetto.filechooser": {
-            "PACKAGE_NAME": "org.cmucreatelab.smell-pgh.bay-area"
         }
     },
     "dependent_plugins": {
