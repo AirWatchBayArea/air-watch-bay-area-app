@@ -69,7 +69,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+    <config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
         <string>For uploading submitted images to the website</string>
     </config-file>
     <allow-intent href="market:*" />
