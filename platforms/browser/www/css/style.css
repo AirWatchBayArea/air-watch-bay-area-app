@@ -129,10 +129,6 @@ strong.required:after{
   color: red;
 }
 
-input.required, textarea.required{
-  transition: border .2s;
-}
-
 .required-error{
   border: 3px solid lightcoral;
 }

@@ -20,7 +20,7 @@
     <preference name="FadeSplashScreenDuration" value="3000" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#085b64" />
+    <preference name="StatusBarBackgroundColor" value="#00bdac" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
@@ -53,9 +53,12 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <gap:config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
-        <string>For uploading user submitted images to the website</string>
+    <gap:config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+        <string>For uploading submitted images to the website</string>
     </gap:config-file>
+    <config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+        <string>For uploading submitted images to the website</string>
+    </config-file>
     <engine name="android" spec="~6.1.2" />
     <engine name="ios" spec="~4.3.1" />
     <platform name="ios">
