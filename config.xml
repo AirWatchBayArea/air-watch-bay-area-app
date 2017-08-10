@@ -52,9 +52,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <gap:config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+<!--     <gap:config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading submitted images to the website</string>
-    </gap:config-file>
+    </gap:config-file> -->
     <config-file mode="replace" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>For uploading submitted images to the website</string>
     </config-file>
