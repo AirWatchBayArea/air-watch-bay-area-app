@@ -69,13 +69,16 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "com.cesidiodibenedetto.filechooser": {
+            "PACKAGE_NAME": "org.cmucreatelab.smell-pgh.bay-area"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     }

@@ -8,16 +8,20 @@ var app = {
     
     bindEvents: function(){
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('DOMContentLoaded', this.DOMReady, false);
     },
     
     onDeviceReady: function(){
         StatusBar.overlaysWebView(false);
-        $(function(){
-            $('[name=geolocation]').click(function(event){
-                navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                                         geolocationError,
-                                                         { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true })
-            });
+    },
+
+    DOMReady: function(){
+        reportingInit();
+        uploadingInit();
+        $('body').on('click', '[name=geolocation]', function(event){
+            navigator.geolocation.getCurrentPosition(geolocationSuccess,
+                                                     geolocationError,
+                                                     { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true })
         });
     },
 

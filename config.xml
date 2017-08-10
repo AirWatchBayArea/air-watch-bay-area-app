@@ -22,17 +22,20 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#085b64" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
+    <plugin name="cordova-plugin-device" spec="~1.1.6" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0" />
+    <plugin name="com.cesidiodibenedetto.filechooser" spec="https://github.com/caixiangsap/filechooser.git" />
+    <plugin name="cordova-plugin-media-capture" spec="~1.2.0" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.1.3" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-spinner" spec="~1.1.0" />
-    <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-geolocation" spec="~2.1.0">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Location data is associated with the location of your smell report and will only be used when the &quot;use my GPS location&quot; button is pressed. Furthermore, a random offset is added to your location for extra security." />
     </plugin>
@@ -90,14 +93,5 @@
         <splash qualifier="mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
         <splash qualifier="hdpi" src="res/screens/android/screen-hdpi-portrait.png" />
         <splash qualifier="xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
-    </platform>
-    <platform name="wp8">
-        <icon height="99" src="res/icons/wp8/ApplicationIcon.png" width="99" />
-        <icon height="159" src="res/icons/wp8/Background.png" width="159" />
-    </platform>
-    <platform name="windows">
-        <icon height="150" src="res/icons/windows8/logo.png" width="150" />
-        <icon height="30" src="res/icons/windows8/smalllogo.png" width="30" />
-        <icon height="50" src="res/icons/windows8/storelogo.png" width="50" />
     </platform>
 </widget>

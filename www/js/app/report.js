@@ -1,6 +1,9 @@
 // var serverURL = 'http://bayarea.staging.api.smellpittsburgh.org/api/v1/smell_reports';
 var serverURL = 'http://api.smellpittsburgh.org/api/v1/smell_reports?area=BA';
 var geocoder;
+var formValidateTimer;
+
+
 // generate a hash for the user
 function generateUserHash() {
   var userHash;
@@ -13,7 +16,7 @@ function generateUserHash() {
   return userHash;
 }
 
-function geocodeAddress(geocoder) {
+function geocodeAddress() {
   var address = document.getElementById('address').value;
   return new Promise(function (resolve, reject){
     if($('[name=location]').prop('disabled')){
@@ -73,6 +76,8 @@ function getDateTimeList(){
   }
   return dateTimeList;
 }
+
+
 
 function serializeForm(geocodeResults, img_src_array){
   //userhash
@@ -157,14 +162,9 @@ function geolocationError(error){
   $('.geoerror').remove();
   // $('[name=geolocation]').prop('disabled', true);
   $('[name=geolocation]').after('<span class="geoerror" style="color:red"><br>Cannot retrieve location, please enter location in textbox below or check location permissions in Settings.<span>');
-  navigator.vibrate(500);
-  navigator.notification.alert(
-    'We were unable to retrieve your location data. Please enter your location in the textbox below the GPS button or check your location permissions in Settings.',
-    function(){
-      scrollToElmMiddle($('[name=location]'));
-    },
-    "Geolocation Failed",
-    );
+  // navigator.vibrate(500);
+  alert(
+    'We were unable to retrieve your location data. Please enter your location in the textbox below the GPS button or check your location permissions in Settings.');
 }
 
 function resetReport(){
@@ -198,17 +198,15 @@ function submissionSuccess(){
 }
 
 function reportFailed(reason, resolution){
-  navigator.vibrate(500);
+  // navigator.vibrate(500);
   $('#submit-success').hide();
   $('#uploading').hide();
   $('#upload-error-message').text(reason);
   $('#error-resolution').text(resolution);
   $('#upload-error').show();
   enableSubmit();
-  navigator.notification.alert(
-    'Report failed to upload: ' + reason + '\n\nResolve by: ' + resolution,
-    function(){},
-    "Report Failed");
+  alert(
+    'Report failed to upload: ' + reason + '\n\nResolve by: ' + resolution);
 }
 
 function disableSubmit(){
@@ -222,10 +220,14 @@ function enableSubmit(){
 }
 
 function formValidate(){
-  var required = $('input.required,textarea.required'); 
+  var required = $('input.required,textarea.required');
+  clearTimeout(formValidateTimer);
   for(var i = 0; i <= (required.length - 1);i++){
     if(required[i].value == '') {
-        $(required[i]).parent().addClass('required-error')
+        $(required[i]).parent().addClass('required-error');
+        formValidateTimer = setTimeout(function(){
+          $(required[i]).parent().removeClass('required-error');
+        }, 2000);
         scrollToElmMiddle($(required[i]));
         return false; 
     }
@@ -255,7 +257,7 @@ function submitForm(){
   });
 }
 
-$(function() {
+function reportingInit() {
   //polyfill report form
   $('#report-form').form();
   //init geocoder
@@ -281,17 +283,22 @@ $(function() {
     resetReport();
   });
 
-  $('[name=tag-other]').focus(function(ev){
+  $('[name=tag-other]').click(function(ev){
+    ev.preventDefault();
     $('[name=tag][value=other]').prop("checked", true);
   });
 
+  $('[name=tag][value=other]').click(function(ev){
+    if($('[name=tag][value=other]').prop("checked")){
+      $('[name=tag-other]').focus();
+    }
+  });
+
   $('#clear-form').click(function(){
-    navigator.notification.confirm("Reset the form?", function(index){
-      if(index == 2){
-        scrollToTop();
-        resetReport();
-      }
-    }, "Form Reset",["Cancel", "OK"]);
+    if(window.confirm("Reset the form?")){
+      scrollToTop();
+      resetReport();
+    }
   });
 
   upload_spinner = new Spinner({
@@ -303,7 +310,6 @@ $(function() {
     trail: 45,
   }).spin();
   document.getElementById('upload-spinner').appendChild(upload_spinner.el)
-
   resetReport();
   //DEBUG:
   // setTimeout(formValidate, 3000);
@@ -313,4 +319,4 @@ $(function() {
   //     reportFailed("because things fail sometimes", "trying harder");
   //   },3000);
   // setTimeout(geolocationError, 3000);
-});
+}

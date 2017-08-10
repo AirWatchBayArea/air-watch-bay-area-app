@@ -40,7 +40,6 @@ button.custom-button {
   color: white !important;
   border: none;
   box-shadow: 3px 3px #872a2a;
-  transition-duration: 0.4s;
 }
 
 button:hover {
@@ -130,6 +129,10 @@ strong.required:after{
   color: red;
 }
 
+input.required, textarea.required{
+  transition: border .2s;
+}
+
 .required-error{
   border: 3px solid lightcoral;
 }
@@ -146,7 +149,6 @@ label.tag{
   border: solid 3px darkgray;
   border-radius: 10px;
   background-color: white;
-  transition: background-color .2s;
   font-weight: normal;
   text-align: center
 }
@@ -171,7 +173,6 @@ input[type='radio']:checked+.tag-label input, input[type='checkbox']:checked+.ta
   border: solid 3px darkgray;
   border-radius: 10px;
   background-color: white;
-  transition: background-color .2s;
 }
 
 .smell-label span{

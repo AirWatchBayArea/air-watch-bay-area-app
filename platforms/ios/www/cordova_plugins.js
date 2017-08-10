@@ -576,6 +576,14 @@ module.exports = [
             "cordova.plugins.Keyboard"
         ],
         "runs": true
+    },
+    {
+        "id": "com.cesidiodibenedetto.filechooser.FileChooser",
+        "file": "plugins/com.cesidiodibenedetto.filechooser/www/filechooser.js",
+        "pluginId": "com.cesidiodibenedetto.filechooser",
+        "clobbers": [
+            "FileChooser"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -603,7 +611,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.5",
     "cordova-plugin-whitelist": "1.2.2",
-    "ionic-plugin-keyboard": "2.2.1"
+    "ionic-plugin-keyboard": "2.2.1",
+    "com.cesidiodibenedetto.filechooser": "1.0.4"
 };
 // BOTTOM OF METADATA
 });
