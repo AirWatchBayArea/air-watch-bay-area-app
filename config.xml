@@ -52,14 +52,12 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <config-file target="*-Info.plist" overwrite="true" parent="NSCameraUsageDescription" platform="ios">
+    <config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
         <string>For capturing images to send to the website</string>
     </config-file>
-    <config-file target="*-Info.plist" overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+    <config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
         <string>For uploading submitted images to the website</string>
     </config-file>
-    <engine name="android" spec="~6.1.2" />
-    <engine name="ios" spec="~4.3.1" />
     <platform name="ios">
         <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
         <icon height="58" src="res/icons/ios/icon-small-2x.png" width="58" />
@@ -96,4 +94,6 @@
         <splash qualifier="hdpi" src="res/screens/android/screen-hdpi-portrait.png" />
         <splash qualifier="xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
     </platform>
+    <engine name="android" spec="~6.1.2" />
+    <engine name="ios" spec="~4.3.1" />
 </widget>

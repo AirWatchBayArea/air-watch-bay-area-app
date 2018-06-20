@@ -1,0 +1,58 @@
+{	
+	"report": {
+		"title": "Reporte un evento de contaminación",
+		"subtitle": "(por ejemplo, olor, llamarada, residuo, efectos a la salud)",
+		"title-note": "Cuando usted reporta a Air Watch Bay Area, contribuye a un <a href='#' onclick='window.open('http://www.airwatchbayarea.org#user-reports', '_system');'>\"rastro documental\" de eventos de contaminación visibles públicamente.</a><br>Tener este rastro documental permite que los miembros de la comunidad responsabilicen al Distrito para el Control de la Calidad del Aire en el Área de la Bahía (BAAQMD) y a los contaminadores.",
+		"photo": "Subir foto del evento (opcional)",
+		"photo-multiple": "Por favor, seleccione varias fotos, una a la vez.",
+		"categories": "Indique las categorías del evento que está reportando (<i>marque todas las que correspondan</i>):",
+		"odor-rating": "¿Qué tan malo es el olor, si lo hay?",
+		"odor-rating-1": "1 - Bueno!",
+		"odor-rating-2": "2 - Apenas perceptible",
+		"odor-rating-3": "3 - Definitivamente perceptible",
+		"odor-rating-4": "4 - Empieza a ser muy malo",
+		"odor-rating-5": "5 - ¡Es lo peor posible!",
+		"where": "¿Dónde estabas cuando experimentaste el olor o el incidente?",
+		"gps": {
+			"value": "usar mi ubicación de GPS"
+		},
+		"address": "¿O cuál es la calle perpendicular o la dirección del olor o evento?",
+		"address-input": {
+			"value": "(por ejemplo: en la esquina de las calles 7a y Hensley)"
+		},
+		"describe-odor": "Describa el olor y/o incidente:",
+		"describe-odor-input": {
+			"value": "por ejemplo: quema, residuos, escape, azufre, humo de leña, huevos podridos"
+		},
+		"symptoms": "¿Qué efectos en la salud está usted teniendo, si los tiene?",
+		"symptoms-input": {
+			"value": "(por ejemplo: dolor de cabeza, garganta irritada, irritación de los ojos)"
+		},
+		"additional-comments": "Más comentarios:",
+		"uploading": "Cargando su informe...",
+		"upload-error": "Si no puede resolver este error, tome capturas de pantalla de su informe y correo electrónico completos <a href='mailto:airwatchbayarea&#x40;gmail.com?Subject=AWBA Error Report' target='_top'>airwatchbayarea&#x40;gmail.com</a> y nos comunicaremos con usted en breve.",
+		"upload-success": "¡Tu envío fue un éxito! Gracias por informar.<br><a onclick='window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');' href='#' class='underline'>Haga clic aquí para hacer un informe al sitio de BAAQMD.</a>",
+		"view-submission": "ver presentación",
+		"submit-another": "enviar otro informe",
+		"note-bottom": "También debe reportar este evento de contaminación al BAAQMD por medio de <a href='#' onclick='window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');' class='underline'>su&nbsp;sitio&nbsp;web</a>. Nosotros no podemos enviarle su informe al BAAQMD.",
+		"reset" : "✕ Restablecer Informe"	
+	},
+	"user-reports":{
+		"title": "Los Informes de los Usuarios",
+		"sort-by": "Clasificar por:",
+		"posted-date": "Fecha en que se publique",
+		"pic-on-top": "Fotos en la parte superior",
+		"odor-severity": "Gravedad del olor",
+		"all": "Todo",
+		"odor": "Olor",
+		"flaring": "Llamarada",
+		"residue": "Residuo",
+		"health": "Salud",
+		"coal": "Carbón",
+		"other​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​": "Otro",
+		"scroll-load": "(Desplazarse hacia abajo para cargar más)"
+	},
+	"resources-for-action": {
+		"title": "Recursos para la Acción"
+	}
+}
