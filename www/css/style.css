@@ -130,7 +130,6 @@ strong.emphasis{
 }
 
 strong.required:after{
-  content: ' (required)';
   color: red;
 }
 

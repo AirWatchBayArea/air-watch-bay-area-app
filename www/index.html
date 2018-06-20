@@ -8,6 +8,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src blob: filesystem: 'self';" />
     
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="localization/lang-en.css">
+    <link rel="stylesheet" type="text/css" href="localization/lang-es.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.form.min.css"/>
     
     <title>Air Watch Bay Area</title>
@@ -30,7 +32,7 @@
                   <p data-localize="report.photo-multiple">Please select multiple photos one at a time.</p>
                 </label>
                 <input id="file-upload" class="upload_field" type="file" name="file" style="color:transparent;">
-                <p class='num-file-status' data-localize="report.file-status"></p>
+                <p class='num-file-status' data-localize="report.file-status">0</p>
                 <div class="thumbnails"></div>
 
                 <!-- <label class='textarea-label photo-upload'>
@@ -48,28 +50,28 @@
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="odor" checked>
-                  <div class="tag-label" data-localize="report.categories-odor" data-localize="report.categories-odor">Odor</div>
+                  <div class="tag-label" data-localize="report.categories-odor" data-localize="report.categories-odor"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="flaring">
-                  <div class="tag-label" data-localize="report.categories-flaring">Flaring</div>
+                  <div class="tag-label" data-localize="report.categories-flaring"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="residue">
-                  <div class="tag-label" data-localize="report.categories-residue">Residue</div>
+                  <div class="tag-label" data-localize="report.categories-residue"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="coal">
-                  <div class="tag-label" data-localize="report.categories-coal">Coal</div>
+                  <div class="tag-label" data-localize="report.categories-coal"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="health">
-                  <div class="tag-label" data-localize="report.categories-health">Health</div>
+                  <div class="tag-label" data-localize="report.categories-health"></div>
                 </label>
                 <br>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="other" style="display: inline-block;">
-                  <div class="tag-label" data-localize="report.categories-other">Other:<input type="text" name="tag-other" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</div>
+                  <div class="tag-label" data-localize="report.categories-other"><input type="text" name="tag-other" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</div>
                 </label>
               </div>
               <div class="report-form-section">

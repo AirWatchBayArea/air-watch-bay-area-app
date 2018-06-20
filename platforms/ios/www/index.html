@@ -8,6 +8,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src blob: filesystem: 'self';" />
     
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="localization/lang-en.css">
+    <link rel="stylesheet" type="text/css" href="localization/lang-es.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.form.min.css"/>
     
     <title>Air Watch Bay Area</title>
@@ -18,18 +20,19 @@
         <div class="page" id="main">
           <!-- <p class="note error" id="console"></p> -->
           <header>
-            <h2>Report a Pollution Incident<br><span style="font-size: 25px; color: gray; font-weight: 500">(i.e. flaring, odor, residue, health symptoms)</span></h2>
+            <h2 style="margin-bottom: 0; padding-bottom: 0" data-localize="report.title">Report a Pollution Incident</h2>
+            <h2 style="margin-top: 0; font-size: 25px; color: gray; font-weight: 500" data-localize="report.subtitle">(i.e. flaring, odor, residue, health symptoms)</h2>
           </header>
           
           <form id="report-form">
-            <p class="note">When you report to Air Watch Bay Area, you contribute to a <a href="#" onclick="window.open('http://www.airwatchbayarea.org#user-reports', '_system');">publicly visible “paper&nbsp;trail” of incidents.</a><br>Having this paper trail enables community members to hold Bay Area Air Quality Management District accountable.</p>
+            <p class="note" data-localize="report.title-note">When you report to Air Watch Bay Area, you contribute to a <a href="#" onclick="window.open('http://www.airwatchbayarea.org#user-reports', '_system');">publicly visible “paper&nbsp;trail” of incidents.</a><br>Having this paper trail enables community members to hold Bay Area Air Quality Management District accountable.</p>
               <div class="report-form-section">
                 <label>
-                  <strong class="emphasis">Upload Photo of Incident (optional)</strong>
-                  <p>Please select multiple photos one at a time.</p>
+                  <strong class="emphasis" data-localize="report.photo">Upload Photo of Incident (optional)</strong>
+                  <p data-localize="report.photo-multiple">Please select multiple photos one at a time.</p>
                 </label>
                 <input id="file-upload" class="upload_field" type="file" name="file" style="color:transparent;">
-                <p class='num-file-status'></p>
+                <p class='num-file-status' data-localize="report.file-status">0</p>
                 <div class="thumbnails"></div>
 
                 <!-- <label class='textarea-label photo-upload'>
@@ -43,86 +46,90 @@
                 </label> -->
                 
                 <label>
-                  <strong class="emphasis">Indicate the category of incident you are reporting (check all that apply):</strong>
+                  <strong class="emphasis" data-localize="report.categories">Indicate the category of incident you are reporting (check all that apply):</strong>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="odor" checked>
-                  <div class="tag-label">Odor</div>
+                  <div class="tag-label" data-localize="report.categories-odor" data-localize="report.categories-odor"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="flaring">
-                  <div class="tag-label">Flaring</div>
+                  <div class="tag-label" data-localize="report.categories-flaring"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="residue">
-                  <div class="tag-label">Residue</div>
+                  <div class="tag-label" data-localize="report.categories-residue"></div>
+                </label>
+                <label class="tag no-highlight" style="display: inline-block;">
+                  <input type="checkbox" name="tag" value="coal">
+                  <div class="tag-label" data-localize="report.categories-coal"></div>
                 </label>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="health">
-                  <div class="tag-label">Health</div>
+                  <div class="tag-label" data-localize="report.categories-health"></div>
                 </label>
                 <br>
                 <label class="tag no-highlight" style="display: inline-block;">
                   <input type="checkbox" name="tag" value="other" style="display: inline-block;">
-                  <div class="tag-label">Other:<input type="text" name="tag-other" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</div>
+                  <div class="tag-label" data-localize="report.categories-other"><input type="text" name="tag-other" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</div>
                 </label>
               </div>
               <div class="report-form-section">
                 <label>
-                  <strong class="emphasis required">How bad is the odor, if any?</strong>
+                  <strong class="emphasis required" data-localize="report.odor-rating">How bad is the odor, if any?</strong>
                 </label>
                 <label>
                   <input type="radio" name="smell" value="1" checked>
                   <div class="smell-label">
                   <div class="radio-circle"></div>
-                  <span>1 - Just Fine!</span></div>
+                  <span data-localize="report.odor-rating-1">1 - Just Fine!</span></div>
                 </label>
                 <label>
                   <input type="radio" name="smell" value="2">
                   <div class="smell-label">
                   <div class="radio-circle"></div>
-                  <span>2 - Barely noticeable</span></div>
+                  <span data-localize="report.odor-rating-2">2 - Barely noticeable</span></div>
                 </label>
                 <label>
                   <input type="radio" name="smell" value="3">
                   <div class="smell-label">
                   <div class="radio-circle"></div>
-                  <span>3 - Definitely noticeable</span></div>
+                  <span data-localize="report.odor-rating-3">3 - Definitely noticeable</span></div>
                 </label>
                 <label>
                   <input type="radio" name="smell" value="4">
                   <div class="smell-label">
                   <div class="radio-circle"></div>
-                  <span>4 - It's getting pretty bad</span></div>
+                  <span data-localize="report.odor-rating-4">4 - It's getting pretty bad</span></div>
                 </label>
                 <label>
                   <input type="radio" name="smell" value="5">
                   <div class="smell-label">
                   <div class="radio-circle"></div>
-                  <span>5 - About as bad as it gets!</span></div>
+                  <span data-localize="report.odor-rating-5">5 - About as bad as it gets!</span></div>
                 </label>
 
                 <label class='textarea-label' for="location">
-                  <strong class="required">Where were you when you experienced the odor or incident?</strong>
+                  <strong class="required" data-localize="report.where">Where were you when you experienced the odor or incident?</strong>
                   <br>
-                  <input type="button" class="report-button" name="geolocation" value="use my GPS location">
+                  <input type="button" class="report-button" name="geolocation" value="use my GPS location" data-localize="report.gps">
                   <br>
-                  <strong>Or enter an address, cross street, or location name here:</strong>
-                  <input type="text" class="required" id="address" name="location" placeholder="e.g. at the corner of 7th and Hensley, Valero Benicia" required/>
+                  <strong data-localize="report.address">Or enter an address, cross street, or location name here:</strong>
+                  <input type="text" class="required" id="address" name="location" placeholder="e.g. at the corner of 7th and Hensley, Valero Benicia" required data-localize="report.address-input"/>
                 </label>
 
                 <label class='textarea-label'>
-                  <strong>Describe the odor or incident:</strong>
-                  <textarea name="describe-air" placeholder="e.g. flaring, residue, exhaust, sulfur, wood smoke, rotten-eggs"></textarea>
+                  <strong data-localize="report.describe-odor">Describe the odor or incident:</strong>
+                  <textarea name="describe-air" placeholder="e.g. flaring, residue, exhaust, sulfur, wood smoke, rotten-eggs" data-localize="report.describe-odor-input"></textarea>
                 </label>
 
                 <label class='textarea-label'>
-                  <strong>What health symptoms are you experiencing, if any?</strong>
-                  <textarea id="symptoms" name="symptoms" placeholder="e.g. headache, sore throat, eye irritation"></textarea>
+                  <strong data-localize="report.symptoms">What health symptoms are you experiencing, if any?</strong>
+                  <textarea id="symptoms" name="symptoms" placeholder="e.g. headache, sore throat, eye irritation" data-localize="report.symptoms-input"></textarea>
                 </label>
 
                 <label class='textarea-label'>
-                  <strong>Additional comments:</strong>
+                  <strong data-localize="report.additional-comments">Additional comments:</strong>
                   <textarea id="additional-comments" name="additional-comments"></textarea>
                 </label>
               </div>
@@ -131,7 +138,7 @@
             <div class="progress_bar">
               <div class="progress_text">
             </div></div></div>
-                 <div id="uploading" class="uploading note">
+                 <div id="uploading" class="uploading note" data-localize="report.uploading">
                   Uploading your report...
                   <div id="upload-spinner"></div>
                 </div>
@@ -139,17 +146,17 @@
                 <div id="upload-error" class="error note">
                   <p id="upload-error-message"></p>
                   <p id="error-resolution"></p>
-                  <p>If you cannot resolve this error, please take screenshots of your entire report and email <a href="mailto:airwatchbayarea@gmail.com?Subject=AWBA Error Report" target="_top">airwatchbayarea@gmail.com</a> and we will get back to you shortly!</p>
+                  <p data-localize="report.upload-error">If you cannot resolve this error, please take screenshots of your entire report and email <a href="mailto:airwatchbayarea@gmail.com?Subject=AWBA Error Report" target="_top">airwatchbayarea@gmail.com</a> and we will get back to you shortly!</p>
                 </div>
 
             <div id="submit-success">
-              <p class="success note">Your submission was a success! Thank you for reporting.<br><a onclick="window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');" href="#" class="underline">Click here to make a report to the BAAQMD site.</a>
+              <p class="success note" data-localize="report.upload-success">Your submission was a success! Thank you for reporting.<br><a onclick="window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');" href="#" class="underline">Click here to make a report to the BAAQMD site.</a>
               </p>
-              <a href="#" onclick="window.open('http://www.airwatchbayarea.org#user-reports', '_system');"><div class="close-report report-button no-highlight">view submission</div></a>
-              <div id="submit-another-report" class="report-button no-highlight">submit another report</div>
+              <a href="#" onclick="window.open('http://www.airwatchbayarea.org#user-reports', '_system');"><div class="close-report report-button no-highlight" data-localize="report.view-submission">view submission</div></a>
+              <div id="submit-another-report" class="report-button no-highlight" data-localize="report.submit-another">submit another report</div>
             </div>
-            <p class="note">This is not a substitute for reporting to BAAQMD, since we cannot relay your report directly to them.  We recommend that you also submit a report through <a onclick="window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');" class="underline">their&nbsp;website</a>.</p>
-            <div id="clear-form">✕ Reset Report</div>
+            <p class="note" data-localize="report.note-bottom">This is not a substitute for reporting to BAAQMD, since we cannot relay your report directly to them.  We recommend that you also submit a report through <a href="#" onclick="window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');" class="underline">its&nbsp;website</a>.</p>
+            <div id="clear-form" data-localize="report.reset">✕ Reset Report</div>
           </form>
         </div>
     </div>
@@ -160,16 +167,18 @@
     <script type='text/javascript' src='js/jquery/jquery.iframe-transport.js'></script>
     <script type='text/javascript' src='js/jquery/jquery.fileupload.js'></script>
     <script type='text/javascript' src='js/jquery/jquery.cloudinary.js'></script>
-    <script type="text/javascript" src="js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.form.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.localize.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbv3SgWdKhgZWNhHVy8QXfYFCSONWj2Jk&libraries=places"></script>
-    <script type="text/javascript" src="js/Promise.js"></script>
-    <script type='text/javascript' src='js/spin.min.js'></script>
+    <script type="text/javascript" src="js/vendor/Promise.js"></script>
+    <script type='text/javascript' src='js/vendor/spin.min.js'></script>
     <script type="text/javascript" src="js/app/md5.js"></script>
     <script type="text/javascript" src="js/app/globalFunctions.js"></script>
     <script type="text/javascript" src="js/app/report.js"></script>
     <script type="text/javascript" src="js/app/upload.js"></script>
     <script type="text/javascript" src="js/app/app.js"></script>
     <script type="text/javascript" src="js/app/pages.js"></script>
+    <script type="text/javascript" src="js/app/language.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>

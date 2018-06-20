@@ -173,7 +173,6 @@ function resetReport(){
   $('#file-upload').prop('disabled', false);
   $('#submit-success').hide();
   $('.thumbnails').html('');
-  $('.num-file-status').text('');
   $('.photo-upload').hide();
   $('.geoerror').remove();
   $('.geocheck').remove();
