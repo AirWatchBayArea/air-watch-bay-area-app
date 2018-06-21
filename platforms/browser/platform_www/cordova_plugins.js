@@ -304,9 +304,7 @@ module.exports = [
         "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
         "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
         "pluginId": "cordova-plugin-inappbrowser",
-        "merges": [
-            ""
-        ]
+        "runs": true
     },
     {
         "file": "plugins/cordova-plugin-media/www/MediaError.js",
@@ -472,7 +470,7 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.5.1",
     "cordova-plugin-geolocation": "2.1.0",
     "cordova-plugin-globalization": "1.0.7",
-    "cordova-plugin-inappbrowser": "1.3.0",
+    "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-media": "2.2.0",
     "cordova-plugin-media-capture": "1.2.0",
     "cordova-plugin-spinner": "1.1.0",

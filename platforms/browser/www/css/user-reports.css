@@ -1,0 +1,77 @@
+.back-to-top {
+	width: 100px;
+	position: fixed;
+	bottom: 3px;
+	right: 3%;
+	z-index: 100;
+	font-size: 13px;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.resource-container{
+	position: relative;
+  	background-color: rgb(235,235,235);
+	padding: 1%;
+}
+
+.resource-container h2 {
+	padding: 10px;
+	text-align: center;
+}
+
+#reports-toolbar{
+	margin: 20px 5%;
+}
+
+.result-count:before{
+	content: "Showing ";
+}
+
+.post{
+	position: relative;
+	width: 90%;
+	margin: 20px 5%;
+	padding: 15px;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#posts .post{
+	max-width: 500px;
+	min-width: 220px;
+	-webkit-transform: translateZ(0);
+}
+
+.post .smell-box{
+	position: relative;
+	display: inline-block;
+}
+
+.post .title{
+	display: inline;
+}
+
+.post .info {
+	display: inline-block;
+	color: gray;
+	font-size: 1.1em;
+}
+
+.post .posted:after{
+	content: "\B7";
+    color: #666;
+    margin: 0 5px;
+}
+
+/*.info.tag:after, .info.additional_comments:after, .info.when:after{
+	content: "" !important;
+}*/
+
+.caption{
+	margin: 5px 0px;
+}
+
+.caption.symptoms:before{
+	color: gray;
+}

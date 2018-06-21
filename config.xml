@@ -79,6 +79,7 @@
         <splash qualifier="xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
     </platform>
     <engine name="ios" spec="^4.5.4" />
+    <engine name="android" spec="^7.1.0" />
     <engine name="browser" spec="^5.0.3" />
     <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" spec="~1.0.2" />
@@ -96,4 +97,5 @@
     <plugin name="cordova-plugin-geolocation" spec="~2.1.0">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Location data is associated with the location of your smell report and will only be used when the &quot;use my GPS location&quot; button is pressed. Furthermore, a random offset is added to your location for extra security." />
     </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
 </widget>

@@ -1,6 +1,6 @@
 var app = {
 
-    default_page: "main",
+    default_page: "report-pollution",
 
     initialize: function(){
         this.bindEvents();
@@ -15,16 +15,6 @@ var app = {
         StatusBar.overlaysWebView(false);
     },
 
-    DOMReady: function(){
-        reportingInit();
-        uploadingInit();
-        $('body').on('click', '[name=geolocation]', function(event){
-            navigator.geolocation.getCurrentPosition(geolocationSuccess,
-                                                     geolocationError,
-                                                     { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true })
-        });
-    },
-
     showPage: function(p){
         var next_page = $("#"+p);
         var prev_page = $(".current-page");
@@ -34,6 +24,17 @@ var app = {
         }
         prev_page.removeClass("current-page");
         next_page.addClass("current-page");
-        pages[p]();
+        // pages[p]();
+    },
+
+    DOMReady: function(){
+        reportingInit();
+        uploadingInit();
+        $('body').on('click', '[name=geolocation]', function(event){
+            navigator.geolocation.getCurrentPosition(geolocationSuccess,
+                                                     geolocationError,
+                                                     { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true })
+        });
+        app.showPage(app.default_page);
     }
 };

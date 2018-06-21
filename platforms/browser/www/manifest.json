@@ -1,0 +1,13 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Air Watch Bay Area",
+  "short_name": "Air Watch Bay Area",
+  "version": "org.cmucreatelab.smell-pgh.bay-area",
+  "description": "Air Watch Bay Area app allows users to make smell reports and submit photos.",
+  "author": "Fair Tech Collective",
+  "icons": [],
+  "orientation": "any",
+  "start_url": "index.html",
+  "theme_color": "#00bdac"
+}

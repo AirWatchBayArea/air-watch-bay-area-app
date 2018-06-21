@@ -161,10 +161,10 @@ function geolocationError(error){
   $('.geocheck').remove();
   $('.geoerror').remove();
   // $('[name=geolocation]').prop('disabled', true);
-  $('[name=geolocation]').after('<span class="geoerror" style="color:red"><br>Cannot retrieve location, please enter location in textbox below or check location permissions in Settings.<span>');
+  $('[name=geolocation]').after('<span class="geoerror" style="color:red" data-localize="report.geoerror"><span>');
   // navigator.vibrate(500);
   alert(
-    'We were unable to retrieve your location data. Please enter your location in the textbox below the GPS button or check your location permissions in Settings.');
+    'We were unable to retrieve your location data. Please enter your location in the textbox below the GPS button or check your location permissions in Settings.\nNo se puede recuperar la ubicación, ingrese la ubicación en el cuadro de texto a continuación o verifique los permisos de ubicación en su Configuración".');
 }
 
 function resetReport(){
@@ -295,7 +295,7 @@ function reportingInit() {
   });
 
   $('#clear-form').click(function(){
-    if(window.confirm("Reset the form?")){
+    if(window.confirm("Reset the form?\nRestablecer el formulario?")){
       scrollToTop();
       resetReport();
     }
