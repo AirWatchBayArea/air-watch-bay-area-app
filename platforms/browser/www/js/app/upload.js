@@ -79,7 +79,7 @@ function fileAddedCallback(e, data){
 	$(thumbnail).children('.delete-me').click(function(event){
 		$(event.currentTarget).parent().next().remove();
 		$(event.currentTarget).parent().remove();
-		$('.num-file-status').text($('.thumbnails img').length);
+		$('.num-file-status').text($('.thumbnails img').length + ' files selected for upload.');
 		if($('.thumbnails img').length){
 			$('.photo-upload').show();
 		}else{

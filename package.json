@@ -1,6 +1,6 @@
 {
   "name": "org.cmucreatelab.smell-pgh.bay-area",
-  "version": "1.8.10",
+  "version": "1.8.11",
   "displayName": "Air Watch Bay Area",
   "cordova": {
     "platforms": [

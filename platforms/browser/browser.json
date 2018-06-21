@@ -24,13 +24,13 @@
           "NSCameraUsageDescription": [
             {
               "xml": "<string>For capturing images to send to the website</string>",
-              "count": 14
+              "count": 15
             }
           ],
           "NSPhotoLibraryUsageDescription": [
             {
               "xml": "<string>For uploading submitted images to the website</string>",
-              "count": 14
+              "count": 15
             }
           ]
         }

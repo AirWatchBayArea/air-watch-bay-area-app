@@ -58,6 +58,8 @@ button:active {
 
 }
 
+
+
 #submit-success, #uploading, #upload-error{
   display: none;
 }
@@ -252,7 +254,7 @@ textarea:disabled{
   color: white;
   text-align: center;
   font-size: 18px;
-  border: none;
+  border: 3px solid darkgray;
   border-radius: 10px;
   -webkit-appearance: none;
   -webkit-border-radius: 10px;
@@ -298,6 +300,10 @@ input[type=submit] {
 
 .thumbnail-wrapper img{
   min-height: 60px;
+}
+
+.language{
+  text-align: center;
 }
 
 .delete-me{
