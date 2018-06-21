@@ -42,6 +42,7 @@
     <config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
         <string>For uploading submitted images to the website</string>
     </config-file>
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <platform name="android">
         <icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
