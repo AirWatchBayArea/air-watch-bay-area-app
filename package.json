@@ -25,7 +25,9 @@
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "Location data is associated with the location of your smell report and will only be used when the \"use my GPS location\" button is pressed. Furthermore, a random offset is added to your location for extra security."
       },
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-media": {}
     }
   },
   "dependencies": {
@@ -47,6 +49,8 @@
     "cordova-plugin-vibration": "~2.1.0",
     "cordova-plugin-whitelist": "~1.2.1",
     "ionic-plugin-keyboard": "~2.2.1",
-    "ios": "0.0.1"
+    "ios": "0.0.1",
+    "cordova-plugin-globalization": "~1.0.3",
+    "cordova-plugin-media": "~2.2.0"
   }
 }
