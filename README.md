@@ -1,8 +1,6 @@
-### jQuery blank Template for Phonegap
+### Air Watch Bay Area App
 
- jQuery version 2.2.3
+[iOS](https://apps.apple.com/us/app/air-watch-bay-area/id1194566633)
+[Android](https://play.google.com/store/apps/details?id=org.cmucreatelab.smell_pgh.bay_area&hl=en)
 
-
- To use this template:
-
-	phonegap create myApp --template phonegap-template-jquery
+This will soon be removed in favor of [Smell My City](https://smellmycity.org).
