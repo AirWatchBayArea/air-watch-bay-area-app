@@ -12,8 +12,8 @@ var app = {
     
     onDeviceReady: function(){
         StatusBar.overlaysWebView(false);
-        app.setupPush();
-        if(window.cordova && window.device) {
+        console.log(device.platform);
+        if(window.device) {
           if (device.platform.toUpperCase() === 'IOS') {
               document.querySelector('.app-link.ios').style.display = 'block';
           } else if (device.platform.toUpperCase() === 'ANDROID') {
