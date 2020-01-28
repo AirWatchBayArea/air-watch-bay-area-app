@@ -53,15 +53,30 @@
                <h2 style="margin-top: 0; font-size: 25px; color: gray; font-weight: 500" data-localize="report.subtitle">(i.e. flaring, odor, residue, health symptoms)</h2>
             </header>
             <form id="report-form">
+               <div class="note" style="text-align: center;">
+                  <img src="img/smell-my-city.png" style="position: relative; display:inline; height: 50px;"/>
+                  <h3 style="position: relative; font-size: 20px; display:inline;">
+                      Download&nbsp;the&nbsp;Smell&nbsp;My&nbsp;City&nbsp;App
+                  </h3>
+                  <p style="font-weight: 500;">
+                     Air Watch Bay Area is joining forces with the <a onclick="window.open('https://smellmycity.org', '_system');" href="#" class="underline">Smell&nbsp;My&nbsp;City</a> app to manage your pollution odor reports and this app will be removed. Please use the Smell My City app instead:
+                  </p>
+                  <a href="#" onclick="window.open('itms-apps://itunes.apple.com/app/smell-mycity/id1299801253', '_system')" class="app-link ios" style="display: none; margin:auto;width:100%; min-width: 200px; max-width: 400px;">
+                    <img src="img/appstore.svg" width="40%" style="display:inline;"/>
+                  </a>
+                  <a href="#" onclick="window.open('market://details?id=org.cmucreatelab.smellmycity', '_system')" class="app-link android" style="display: none; margin:auto;width:100%; min-width: 200px; max-width: 400px;">
+                    <img src="img/googleplay.png" width="45%" style="display:inline"/>
+                  </a>
+               </div>
                <p class="note" data-localize="report.title-note">When you report to Air Watch Bay Area, you contribute to a <a href="#user-reports" onclick="app.showPage('user-reports');">publicly visible “paper&nbsp;trail” of incidents.</a><br>Having this paper trail enables community members to hold Bay Area Air Quality Management District accountable.</p>
                <div class="report-form-section">
-                  <label>
+                  <!-- <label>
                      <strong class="emphasis" data-localize="report.photo">Upload Photo of Incident (optional)</strong>
                      <p data-localize="report.photo-multiple">Please select multiple photos one at a time.</p>
                   </label>
                   <input id="file-upload" class="upload_field" type="file" name="file" style="color:transparent;">
                   <p class='num-file-status' data-localize="report.file-status">0</p>
-                  <div class="thumbnails"></div>
+                  <div class="thumbnails"></div> -->
                   <!-- <label class='textarea-label photo-upload'>
                      <strong>Caption:</strong>
                      <textarea id="caption" name="caption"></textarea>
@@ -177,14 +192,14 @@
                   <p data-localize="report.upload-error">If you cannot resolve this error, please take screenshots of your entire report and email <a href="mailto:airwatchbayarea@gmail.com?Subject=AWBA Error Report" target="_top">airwatchbayarea@gmail.com</a> and we will get back to you shortly!</p>
                </div>
                <div id="submit-success">
-                  <p class="success note" data-localize="report.upload-success">Your submission was a success! Thank you for reporting.<br><a onclick="cordova.InAppBrowser.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_blank', 'location=no');" href="#" class="underline">Click here to make a report to the BAAQMD site.</a>
+                  <p class="success note" data-localize="report.upload-success">Your submission was a success! Thank you for reporting.<br><a onclick="window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');" href="#" class="underline">Click here to make a report to the BAAQMD site.</a>
                   </p>
                   <a href="#" onclick="app.showPage('user-reports');">
                      <div class="close-report report-button no-highlight" data-localize="report.view-submission">view submission</div>
                   </a>
                   <div id="submit-another-report" class="report-button no-highlight" data-localize="report.submit-another">submit another report</div>
                </div>
-               <p class="note" data-localize="report.note-bottom">This is not a substitute for reporting to BAAQMD, since we cannot relay your report directly to them.  We recommend that you also submit a report through <a href="#" onclick="cordova.InAppBrowser.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_blank', 'location=no');" class="underline">its&nbsp;website</a>.</p>
+               <p class="note" data-localize="report.note-bottom">This is not a substitute for reporting to BAAQMD, since we cannot relay your report directly to them.  We recommend that you also submit a report through <a href="#" onclick="window.open('https://permits.baaqmd.gov/PublicForms/ComplaintWizardSelection', '_system');" class="underline">its&nbsp;website</a>.</p>
                <div id="clear-form" data-localize="report.reset">✕ Reset Report</div>
             </form>
          </div>

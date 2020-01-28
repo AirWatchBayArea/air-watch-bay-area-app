@@ -7,13 +7,19 @@ var app = {
     },
     
     bindEvents: function(){
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('DOMContentLoaded', this.DOMReady, false);
+        document.addEventListener('DOMContentLoaded', () => this.DOMReady(), false);
     },
     
     onDeviceReady: function(){
         StatusBar.overlaysWebView(false);
-        app.setupPush();
+        console.log(device.platform);
+        if(window.device) {
+          if (device.platform.toUpperCase() === 'IOS') {
+              document.querySelector('.app-link.ios').style.display = 'block';
+          } else if (device.platform.toUpperCase() === 'ANDROID') {
+              document.querySelector('.app-link.android').style.display = 'block';
+          }
+      }
     },
 
     showPage: function(p){
@@ -29,6 +35,7 @@ var app = {
     },
 
     DOMReady: function(){
+        document.addEventListener('deviceready', () => this.onDeviceReady(), false);
         reportingInit();
         uploadingInit();
         $('body').on('click', '[name=geolocation]', function(event){
