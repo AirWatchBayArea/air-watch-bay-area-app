@@ -102,7 +102,7 @@
     <plugin name="cordova-plugin-geolocation" spec="~2.1.0">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Location data is associated with the location of your smell report and will only be used when the &quot;use my GPS location&quot; button is pressed. Furthermore, a random offset is added to your location for extra security." />
     </plugin>
-    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.2.0" />
     <plugin name="cordova-plugin-globalization" spec="~1.0.3" />
     <plugin name="cordova-plugin-media" spec="~2.2.0" />
     <engine name="ios" spec="^4.5.4" />
