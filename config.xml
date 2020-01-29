@@ -8,7 +8,7 @@
         Fair Tech Collective
     </author>
     <content src="index.html" />
-    <preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
     <preference name="orientation" value="default" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-targetSdkVersion" value="23" />
@@ -106,6 +106,6 @@
     <plugin name="cordova-plugin-globalization" spec="~1.11.0" />
     <plugin name="cordova-plugin-media" spec="~5.0.3" />
     <engine name="ios" spec="^5.1.1" />
-    <engine name="android" spec="^8.1.0" />
+    <engine name="android" spec="^8.0.0" />
     <engine name="browser" spec="^6.0.0" />
 </widget>
