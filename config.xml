@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.cmucreatelab.smell-pgh.bay-area" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.cmucreatelab.smell-pgh.bay-area" version="3.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Air Watch Bay Area</name>
     <description>
         Air Watch Bay Area app allows users to make smell reports and submit photos.
@@ -88,7 +88,6 @@
         <splash density="port-xxxhdpi" src="res/screen/android/drawable-splash-port-xxxhdpi.png" />
     </platform>
     <plugin name="cordova-plugin-camera" spec="~2.1.1" />
-    <plugin name="cordova-plugin-console" spec="~1.0.2" />
     <plugin name="cordova-plugin-device" spec="~1.1.6" />
     <plugin name="cordova-plugin-dialogs" spec="~1.2.0" />
     <plugin name="cordova-plugin-file" spec="~4.1.1" />
